@@ -1,0 +1,11 @@
+ SELECT "login", COUNT("Orders".id) as delivery 
+ FROM "Couriers" 
+ JOIN "Orders" ON "Couriers"."id" = "Orders"."courierId" 
+ WHERE "Orders"."inDelivery" = true 
+ GROUP BY "Couriers"."login";
+
+
+ login | delivery
+-------+----------
+ ninja |        2
+(1 row)
